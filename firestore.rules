@@ -1,0 +1,88 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && getUserRole() == 'admin';
+    }
+    
+    function isBlogger() {
+      return isAuthenticated() && (getUserRole() == 'blogger' || getUserRole() == 'admin');
+    }
+
+    // User profiles - users can read their own profile
+    match /users/{userId} {
+      allow read: if isAuthenticated() && request.auth.uid == userId;
+      allow write: if isAdmin();
+    }
+
+    // Blog posts - read publicly, write for bloggers and admins
+    match /blogPosts/{postId} {
+      allow read: if true;
+      allow write: if isBlogger();
+    }
+    
+    // Products - read publicly, write only for admins
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    // Contact submissions - public create, admin-only management
+    match /contactSubmissions/{submissionId} {
+      allow create: if request.resource.data.keys().hasOnly([
+        'name', 'email', 'phone', 'company', 'message', 'createdAt', 'read'
+      ])
+      && request.resource.data.name is string
+      && request.resource.data.email is string
+      && request.resource.data.message is string
+      && request.resource.data.createdAt is timestamp
+      && request.resource.data.read == false;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Banners - read publicly, write only for admins
+    match /banners/{bannerId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Site pages content (Overview, etc.) - read publicly, write for admins
+    match /sitePages/{slug} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Infrastructure content - read publicly, write for admins
+    match /infrastructure/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Q/A content - read publicly, write for admins
+    match /qa/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Value Added Services (VAS) content - read publicly, write for admins
+    match /vas/{slug} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Site processes content - read publicly, write for admins
+    match /siteProcesses/{slug} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

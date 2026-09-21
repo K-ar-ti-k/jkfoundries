@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+body {
+  font-family: var(--font-opensans), Arial, Helvetica, sans-serif;
+}
+
+/* Font utility classes */
+.font-montserrat {
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+}
+
+.font-opensans {
+  font-family: var(--font-opensans), Arial, Helvetica, sans-serif;
+}
+
+/* Remove problematic CSS variables and rely on Tailwind's color system */
+body {
+  /* Default to dark text on white background */
+  color: #333333;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Fix for white text on white background issues */
+h1, h2, h3, h4, h5, h6 {
+  color: #333333;
+}
+
+/* Override text-white class when not in dark backgrounds */
+.bg-white .text-white,
+.bg-light .text-white {
+  color: #333333 !important;
+}
+
+
+/* Ensure text is visible in dark sections */
+.bg-dark {
+  background-color: #333333;
+}
+
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark h4,
+.bg-dark h5,
+.bg-dark h6,
+.bg-dark p,
+.bg-dark span,
+.bg-dark div {
+  color: #ffffff;
+}
+
+/* Primary color elements */
+.text-primary {
+}
+
+.bg-primary {
+  background-color: #F2A600;
+}
+
+/* Any additional global styles can go here */
