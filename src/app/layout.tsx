@@ -5,6 +5,7 @@ import Script from "next/script";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import { websiteJsonLd } from "@/lib/jsonld";
 import { siteUrl } from "@/lib/site";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
