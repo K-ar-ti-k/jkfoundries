@@ -114,6 +114,7 @@ export default function RootLayout({
         )}
         
         <LayoutWrapper>{children}</LayoutWrapper>
+        <SpeedInsights />
       </body>
     </html>
   );
