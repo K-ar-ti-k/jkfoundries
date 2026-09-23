@@ -48,6 +48,8 @@ export default async function Home() {
             loop
             muted
             playsInline
+            preload="metadata"
+            poster="/quality-banner.webp"
             className="absolute w-full h-full object-cover opacity-70"
           >
             <source src="/videos/hero-background.mp4" type="video/mp4" />

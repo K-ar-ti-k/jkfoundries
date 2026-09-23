@@ -7,7 +7,7 @@ import { MdClose } from "react-icons/md";
 import { HiSparkles } from "react-icons/hi2";
 import { BannerConfig } from "@/lib/firebase/firestore";
 import { useAuth } from "@/contexts/AuthContext";
-import { doc, onSnapshot } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db, isFirebaseConfigured } from "@/lib/firebase/config";
 
 const Banner = () => {
@@ -37,21 +37,23 @@ const Banner = () => {
     if (!isFirebaseConfigured) return;
 
     const ref = doc(db, "banners", "main");
-    const unsubscribe = onSnapshot(
-      ref,
-      (snap) => {
+
+    const loadBanner = async () => {
+      try {
+        const snap = await getDoc(ref);
         if (snap.exists()) {
           const data = snap.data() as BannerConfig;
           setBanner({ id: snap.id, ...data });
         } else {
           setBanner(null);
         }
-      },
-      (error) => {
-        console.error("Failed to subscribe to banner config", error);
+      } catch (error) {
+        console.error("Failed to load banner config", error);
+        setBanner(null);
       }
-    );
-    return () => unsubscribe();
+    };
+
+    loadBanner();
   }, []);
 
   const checkVisibility = (config: BannerConfig) => {

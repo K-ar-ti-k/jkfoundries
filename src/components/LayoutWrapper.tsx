@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { AuthProvider } from "@/contexts/AuthContext";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SocialMediaSidebar from "./SocialMediaSidebar";
@@ -19,13 +18,13 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
 
   // Show full layout for regular routes
   return (
-    <AuthProvider>
+    <>
       <Navbar />
       <Banner />
       <main>{children}</main>
       <Footer />
       <SocialMediaSidebar />
       <WhatsAppButton />
-    </AuthProvider>
+    </>
   );
 }

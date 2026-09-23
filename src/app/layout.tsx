@@ -5,7 +5,6 @@ import Script from "next/script";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import { websiteJsonLd } from "@/lib/jsonld";
 import { siteUrl } from "@/lib/site";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -104,9 +103,10 @@ export default function RootLayout({
           <>
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=G-J8GHVD9N3S"
-              strategy="afterInteractive"
+              strategy="lazyOnload"
+              async
             />
-            <Script id="google-analytics" strategy="afterInteractive">
+            <Script id="google-analytics" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
