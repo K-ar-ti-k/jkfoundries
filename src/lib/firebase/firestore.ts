@@ -35,6 +35,14 @@ const invalidateProductsCache = () => {
   });
 };
 
+const invalidateBlogPostsCache = () => {
+  Object.keys(cache).forEach((key) => {
+    if (key.startsWith("blogPosts:")) {
+      delete cache[key];
+    }
+  });
+};
+
 // Blog Post Types
 export interface BlogPost {
   id?: string;
@@ -269,6 +277,7 @@ export const createBlogPost = async (post: Omit<BlogPost, "id" | "createdAt" | "
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
   });
+  invalidateBlogPostsCache();
   return docRef.id;
 };
 
@@ -289,6 +298,7 @@ export const updateBlogPost = async (id: string, post: Partial<BlogPost>): Promi
     metaDescription: merged.metaDescription || seo.metaDescription,
     updatedAt: Timestamp.now(),
   });
+  invalidateBlogPostsCache();
 };
 
 export const deleteBlogPost = async (id: string): Promise<void> => {
@@ -296,6 +306,7 @@ export const deleteBlogPost = async (id: string): Promise<void> => {
 
   const docRef = doc(db, "blogPosts", id);
   await deleteDoc(docRef);
+  invalidateBlogPostsCache();
 };
 
 // Products Collection

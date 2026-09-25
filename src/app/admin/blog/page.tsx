@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { getBlogPosts, deleteBlogPost, BlogPost } from "@/lib/firebase/firestore";
+import {
+  createBlogPost,
+  deleteBlogPost,
+  BlogPost,
+} from "@/lib/firebase/firestore";
 
 export default function AdminBlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -13,10 +17,41 @@ export default function AdminBlogPage() {
     loadPosts();
   }, []);
 
+  const fetchPosts = async () => {
+    const response = await fetch("/api/admin/blogs", { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error("Unable to load blog posts");
+    }
+    return (await response.json()) as BlogPost[];
+  };
+
+  const isLocalPost = (post: BlogPost) => post.id?.startsWith("local:");
+
+  const migrateLocalPosts = async (blogPosts: BlogPost[]) => {
+    const localPosts = blogPosts.filter(isLocalPost);
+    const postsToImport = localPosts.filter(
+      (localPost) => !blogPosts.some(
+        (post) => !isLocalPost(post) && post.slug === localPost.slug,
+      ),
+    );
+
+    if (postsToImport.length === 0) return blogPosts;
+
+    await Promise.all(
+      postsToImport.map((post) => {
+        const postData = { ...post };
+        delete postData.id;
+        return createBlogPost(postData);
+      }),
+    );
+
+    return fetchPosts();
+  };
+
   const loadPosts = async () => {
     try {
-      const blogPosts = await getBlogPosts();
-      setPosts(blogPosts);
+      const blogPosts = await fetchPosts();
+      setPosts(await migrateLocalPosts(blogPosts));
     } catch (error) {
       console.error("Error loading blog posts:", error);
     } finally {

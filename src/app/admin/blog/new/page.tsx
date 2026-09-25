@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createBlogPost } from "@/lib/firebase/firestore";
 import { uploadImage } from "@/lib/firebase/storage";
+import { createShortSlug } from "@/lib/slug";
 
 export default function NewBlogPostPage() {
   const router = useRouter();
@@ -27,10 +28,7 @@ export default function NewBlogPostPage() {
     
     // Auto-generate slug from title
     if (name === "title") {
-      const slug = value
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "");
+      const slug = createShortSlug(value);
       setFormData((prev) => ({ ...prev, slug }));
     }
 

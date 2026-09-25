@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { getBlogPostById, updateBlogPost } from "@/lib/firebase/firestore";
 import { uploadImage } from "@/lib/firebase/storage";
+import { createShortSlug } from "@/lib/slug";
 
 export default function EditBlogPostPage() {
   const router = useRouter();
@@ -62,17 +63,18 @@ export default function EditBlogPostPage() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    const nextFormData = { ...formData, [name]: value };
-    setFormData(nextFormData);
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+      ...(name === "title"
+        ? {
+            slug: createShortSlug(value),
+          }
+        : {}),
+    }));
     if (name === "image" && (imageMode === "url" || imageMode === "public")) {
       setImagePreview(value);
-    }
-
-    if (name === "title" || name === "excerpt" || name === "content") {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
     }
   };
 

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { getBlogPosts } from "@/lib/firebase/firestore";
 import { getContactSubmissions } from "@/lib/firebase/firestore";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -16,10 +15,14 @@ export default function AdminDashboard() {
   useEffect(() => {
     const loadStats = async () => {
       try {
-        const [posts, contacts] = await Promise.all([
-          getBlogPosts(),
+        const [postsResponse, contacts] = await Promise.all([
+          fetch("/api/admin/blogs", { cache: "no-store" }),
           role === 'admin' ? getContactSubmissions() : Promise.resolve([]),
         ]);
+        if (!postsResponse.ok) {
+          throw new Error("Unable to load blog post count");
+        }
+        const posts = (await postsResponse.json()) as unknown[];
         setBlogPostsCount(posts.length);
         if (role === 'admin') {
           setContactsCount(contacts.length);
