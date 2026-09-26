@@ -103,6 +103,30 @@ export default function AdminDashboard() {
         ))}
       </div>
 
+      <section className="mt-8">
+        <h2 className="text-xl font-semibold font-montserrat text-gray-900 mb-4">
+          Management
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Link
+            href="/admin/products"
+            className="flex items-center gap-4 bg-white border border-gray-200 rounded-lg p-5 hover:border-primary hover:shadow-md transition-all"
+          >
+            <span className="text-2xl" aria-hidden="true">📦</span>
+            <span className="font-medium text-gray-900">Product Management</span>
+            <span className="ml-auto text-gray-400" aria-hidden="true">→</span>
+          </Link>
+          <Link
+            href="/admin/banner"
+            className="flex items-center gap-4 bg-white border border-gray-200 rounded-lg p-5 hover:border-primary hover:shadow-md transition-all"
+          >
+            <span className="text-2xl" aria-hidden="true">📢</span>
+            <span className="font-medium text-gray-900">Banner Management</span>
+            <span className="ml-auto text-gray-400" aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </section>
+
       <div className="mt-8 bg-white rounded-lg shadow-md p-6">
         <h2 className="text-xl font-semibold font-montserrat text-gray-900 mb-4">
           Quick Actions
