@@ -85,10 +85,10 @@ export interface ContactSubmission {
   read?: boolean;
 }
 
-// Banner Types
 export interface BannerConfig {
   id?: string;
   isEnabled: boolean;
+  activationConfirmed?: boolean;
   leadIn: string;
   productName: string;
   benefit: string;
@@ -155,8 +155,6 @@ export const updateBannerConfig = async (data: Partial<BannerConfig>): Promise<v
 
   try {
     const docRef = doc(db, "banners", "main");
-    
-    // Clean undefined values
     const cleanData = Object.entries(data).reduce((acc, [key, value]) => {
       if (value !== undefined) {
         acc[key] = value;
@@ -164,13 +162,8 @@ export const updateBannerConfig = async (data: Partial<BannerConfig>): Promise<v
       return acc;
     }, {} as Record<string, unknown>);
 
-    const updateData = {
-      ...cleanData,
-      updatedAt: Timestamp.now()
-    };
-
-    // setDoc with merge: true will create if not exists, or update if exists
-    await setDoc(docRef, updateData, { merge: true });
+    await setDoc(docRef, { ...cleanData, updatedAt: Timestamp.now() }, { merge: true });
+    delete cache["banners:main"];
   } catch (error) {
     console.error("Error updating banner config:", error);
     throw error;

@@ -61,7 +61,7 @@ const Banner = () => {
   }, []);
 
   const checkVisibility = (config: BannerConfig) => {
-    if (!config.isEnabled) {
+    if (!config.isEnabled || !config.activationConfirmed) {
       setIsVisible(false);
       return;
     }
@@ -135,7 +135,7 @@ const Banner = () => {
   };
 
   if (!hasResolvedVisibility) {
-    return <div aria-hidden="true" className="min-h-[132px] sm:min-h-[60px]" />;
+    return null;
   }
 
   if (!isVisible || !banner) return null;

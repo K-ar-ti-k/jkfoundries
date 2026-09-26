@@ -28,6 +28,7 @@ export default function BannerAdminPage() {
         if (config) {
           // Ensure dates are formatted for datetime-local
           const formattedConfig = { ...config };
+          formattedConfig.isEnabled = config.isEnabled && config.activationConfirmed === true;
           if (formattedConfig.startDate) formattedConfig.startDate = formattedConfig.startDate.slice(0, 16);
           if (formattedConfig.endDate) formattedConfig.endDate = formattedConfig.endDate.slice(0, 16);
           
@@ -60,7 +61,7 @@ export default function BannerAdminPage() {
     e.preventDefault();
     setSaving(true);
     try {
-      await updateBannerConfig(formData);
+      await updateBannerConfig({ ...formData, activationConfirmed: formData.isEnabled });
       alert("Banner updated successfully!");
     } catch (error) {
       console.error("Error updating banner:", error);
