@@ -13,6 +13,8 @@ import { db, isFirebaseConfigured } from "@/lib/firebase/config";
 const Banner = () => {
   const [banner, setBanner] = useState<BannerConfig | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasLoadedBanner, setHasLoadedBanner] = useState(!isFirebaseConfigured);
+  const [hasResolvedVisibility, setHasResolvedVisibility] = useState(!isFirebaseConfigured);
   const pathname = usePathname();
   const { user } = useAuth();
 
@@ -50,6 +52,8 @@ const Banner = () => {
       } catch (error) {
         console.error("Failed to load banner config", error);
         setBanner(null);
+      } finally {
+        setHasLoadedBanner(true);
       }
     };
 
@@ -92,10 +96,15 @@ const Banner = () => {
   };
 
   useEffect(() => {
+    if (!hasLoadedBanner) return;
+
     if (banner) {
-        checkVisibility(banner);
+      checkVisibility(banner);
+    } else {
+      setIsVisible(false);
     }
-  }, [banner, pathname, user]);
+    setHasResolvedVisibility(true);
+  }, [banner, hasLoadedBanner, pathname, user]);
 
 
   const handleDismiss = () => {
@@ -125,11 +134,15 @@ const Banner = () => {
       }
   };
 
+  if (!hasResolvedVisibility) {
+    return <div aria-hidden="true" className="min-h-[132px] sm:min-h-[60px]" />;
+  }
+
   if (!isVisible || !banner) return null;
 
   return (
     <div
-      className="sticky top-0 z-50 w-full transition-all duration-300"
+      className="sticky top-0 z-50 min-h-[132px] w-full transition-all duration-300 sm:min-h-[60px]"
       style={{
         backgroundImage: `linear-gradient(90deg, ${banner.backgroundColor}, ${shadeColor(
           banner.backgroundColor,
