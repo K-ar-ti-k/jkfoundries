@@ -155,17 +155,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               prose-ul:my-8
               prose-ul:ml-0
               prose-ul:space-y-4
-              prose-ul:list-none
-              prose-li:relative
-              prose-li:pl-6
               prose-li:text-gray-600
               prose-li:leading-[1.6]
-              prose-li:marker:text-transparent
-              before:prose-li:content-['•']
-              before:prose-li:absolute
-              before:prose-li:left-0
-              before:prose-li:top-[2px]
-              before:prose-li:text-gray-400
               prose-strong:font-medium
               prose-strong:text-gray-900
               prose-code:text-gray-900
@@ -181,18 +172,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               prose-img:my-8
               [&>*:first-child]:mt-0
               [&>*:last-child]:mb-0
-              [&>ul]:space-y-4
-              [&>ul>li]:flex
-              [&>ul>li]:items-start
-              [&>ul>li]:gap-3
-              [&>ul>li]:before:relative
-              [&>ul>li]:before:top-0
-              [&>ul>li]:before:flex-shrink-0
-              [&>ul>li]:before:mt-1
-              [&>ul>li]:before:text-gray-400
-              [&>ul>li]:before:text-lg
-              [&>ul>li]:before:leading-none
-              [&>ul>li]:before:content-['•']
               [&>ul+ul]:mt-8
               [&>p+ul]:mt-6
               [&>h2+ul]:mt-8
