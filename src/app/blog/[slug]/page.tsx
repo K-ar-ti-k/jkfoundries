@@ -11,6 +11,28 @@ import { pageSocialMetadata } from "@/lib/site";
 const trimMetadata = (value: string, maxLength: number) =>
   value.length <= maxLength ? value : `${value.slice(0, maxLength - 3).trim()}...`;
 
+function normalizeLegacyBullets(content: string): string {
+  let codeFence: string | null = null;
+
+  return content
+    .split(/\r?\n/)
+    .map((line) => {
+      const fence = line.match(/^\s*(```+|~~~+)/)?.[1];
+      if (fence) {
+        if (!codeFence) {
+          codeFence = fence[0];
+        } else if (codeFence === fence[0]) {
+          codeFence = null;
+        }
+        return line;
+      }
+
+      if (codeFence) return line;
+      return line.replace(/^(\s*)[•●▪◦‣]\s+/, "$1- ");
+    })
+    .join("\n");
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -63,7 +85,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   }
 
   marked.setOptions({ gfm: true, breaks: true });
-  const htmlContent = await marked.parse(post.content);
+  const htmlContent = await marked.parse(normalizeLegacyBullets(post.content));
   const schema = articleJsonLd(
     `/blog/${post.slug}`,
     post.title,

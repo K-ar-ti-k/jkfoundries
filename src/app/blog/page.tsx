@@ -6,6 +6,8 @@ import JsonLd from "@/components/JsonLd";
 import { itemListJsonLd, webPageJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Steel Casting Blog",
   description:
@@ -51,8 +53,13 @@ export default async function BlogPage() {
         </div>
         <div className="p-6">
           <div className="text-sm text-gray-500 mb-2">{post.date}</div>
-          <h3 className="text-xl font-semibold font-montserrat mb-3 text-dark hover:text-primary transition-colors">
-            {post.title}
+          <h3 className="text-xl font-semibold font-montserrat mb-3 text-dark">
+            <Link
+              href={`/blog/${post.slug}`}
+              className="transition-colors hover:text-primary focus-visible:underline"
+            >
+              {post.title}
+            </Link>
           </h3>
           <p className="text-secondary mb-4">{post.excerpt}</p>
           <Link
