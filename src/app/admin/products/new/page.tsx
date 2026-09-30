@@ -8,9 +8,11 @@ import { uploadImage } from "@/lib/firebase/storage";
 export default function NewProductPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [imageMode, setImageMode] = useState<"upload" | "url">("upload");
+  const [imageMode, setImageMode] = useState<"upload" | "url" | "public">("public");
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
+  const [imagePath, setImagePath] = useState<string>("");
+  const [imageUrl, setImageUrl] = useState<string>("");
   const [formData, setFormData] = useState({
     name: "",
     material: "",
@@ -28,9 +30,6 @@ export default function NewProductPage() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (name === "image" && imageMode === "url") {
-      setImagePreview(value);
-    }
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,22 +49,34 @@ export default function NewProductPage() {
     setLoading(true);
 
     try {
-      let imageUrl = formData.image;
+      let finalImageUrl = "";
 
-      if (imageMode === "upload" && imageFile) {
-        const imagePath = `products/${Date.now()}_${imageFile.name}`;
-        imageUrl = await uploadImage(imageFile, imagePath);
-      }
-
-      if (!imageUrl) {
-        alert("Please provide an image (upload or URL)");
+      if (imageMode === "public") {
+        finalImageUrl = imagePath.trim();
+        if (!finalImageUrl) {
+          alert("Please enter an image path (e.g., /products/product.jpg)");
+          setLoading(false);
+          return;
+        }
+      } else if (imageMode === "url") {
+        finalImageUrl = imageUrl.trim();
+        if (!finalImageUrl) {
+          alert("Please enter a valid image URL");
+          setLoading(false);
+          return;
+        }
+      } else if (imageFile) {
+        const uploadPath = `products/${Date.now()}_${imageFile.name}`;
+        finalImageUrl = await uploadImage(imageFile, uploadPath);
+      } else {
+        alert("Please select an image to upload");
         setLoading(false);
         return;
       }
 
       await createProduct({
         ...formData,
-        image: imageUrl,
+        image: finalImageUrl,
       });
 
       router.push("/admin/products");
@@ -156,6 +167,20 @@ export default function NewProductPage() {
             <button
               type="button"
               onClick={() => {
+                setImageMode("public");
+                setImagePreview(imagePath);
+              }}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                imageMode === "public"
+                  ? "bg-primary text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              }`}
+            >
+              Public Folder
+            </button>
+            <button
+              type="button"
+              onClick={() => {
                 setImageMode("upload");
                 setImagePreview("");
               }}
@@ -183,22 +208,45 @@ export default function NewProductPage() {
             </button>
           </div>
 
-          {imageMode === "upload" ? (
+          {imageMode === "public" && (
+            <div>
+              <input
+                type="text"
+                value={imagePath}
+                onChange={(e) => {
+                  setImagePath(e.target.value);
+                  setImagePreview(e.target.value);
+                }}
+                placeholder="/products/product.jpg or /images/product.jpg"
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+              />
+              <p className="mt-2 text-sm text-gray-500">
+                Enter the path to an image in the public folder.
+              </p>
+            </div>
+          )}
+
+          {imageMode === "url" && (
+            <input
+              type="url"
+              value={imageUrl}
+              onChange={(e) => {
+                setImageUrl(e.target.value);
+                setImagePreview(e.target.value);
+              }}
+              placeholder="https://example.com/image.jpg"
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+            />
+          )}
+
+          {imageMode === "upload" && (
             <input
               type="file"
               accept="image/*"
               onChange={handleImageChange}
-              required={!formData.image}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-            />
-          ) : (
-            <input
-              type="url"
-              name="image"
-              value={formData.image}
-              onChange={handleInputChange}
               required
-              placeholder="https://example.com/image.jpg"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
             />
           )}

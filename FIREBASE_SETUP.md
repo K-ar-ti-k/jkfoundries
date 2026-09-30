@@ -55,7 +55,13 @@ This guide will help you set up Firebase for the admin panel.
 2. Click **Add user**
 3. Enter an email and password for your admin account
 4. Click **Add user**
-5. This user can now log in to `/admin/login`
+5. Copy the new user's **User UID** from the Authentication users table.
+6. In **Firestore Database**, create a document in the `users` collection with:
+   - Document ID: the Firebase Authentication User UID
+   - `email`: the user's email address
+   - `role`: `admin`
+   - `updatedAt`: a timestamp
+7. This user can now log in to `/admin/login` and manage products.
 
 ## Step 7: Set Up Firestore Security Rules
 

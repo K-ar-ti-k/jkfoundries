@@ -148,6 +148,9 @@ src/
    - Go to Firebase Console > Authentication > Users
    - Click "Add user"
    - Enter email and password
+   - Copy the user's UID
+   - In Firestore, create `users/{UID}` with `email` and `role: "admin"`
+   - Publish the rules from `firestore.rules` in Firestore Database > Rules
    - This user can now log in at `/admin/login`
 
 4. **Install dependencies** (if not already done):
@@ -198,8 +201,8 @@ src/
 ## Security
 
 - All admin routes are protected by authentication
-- Only authenticated users can access admin pages
-- Firestore security rules restrict write access to authenticated users
+- Only authenticated users with a matching `users/{UID}` role can access admin pages
+- Firestore security rules restrict writes to the configured admin or blogger roles
 - Storage security rules allow public reads but require authentication for writes
 
 ## Migration from Markdown to Firestore

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 
 export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { user, loading } = useAuth();
+  const { user, role, loading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -27,6 +27,20 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
 
   if (!user) {
     return null;
+  }
+
+  if (!role) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+        <div className="max-w-lg rounded-lg bg-white p-8 text-center shadow-md">
+          <h1 className="text-xl font-semibold text-gray-900">Admin access is not configured</h1>
+          <p className="mt-3 text-gray-600">
+            This Firebase account does not have an admin role. Add a users document
+            for this account with <strong>role: &quot;admin&quot;</strong>, then sign in again.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return <>{children}</>;
