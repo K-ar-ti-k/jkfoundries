@@ -3,6 +3,8 @@ import { getAllBlogPosts } from "@/lib/blog";
 import { getProducts } from "@/lib/firebase/firestore";
 import { siteUrl } from "@/lib/site";
 
+export const dynamic = "force-dynamic";
+
 const staticRoutes = [
   "/",
   "/about",
