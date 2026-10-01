@@ -13,7 +13,7 @@ export const websiteJsonLd = {
       description:
         "Manufacturer of steel cast components for trucks, trolleys, industrial equipment, and general engineering.",
       industry: "Steel casting manufacturing",
-      foundingDate: "2007",
+      foundingDate: "2010",
       knowsAbout: [
         "Steel casting",
         "Truck components",
@@ -186,5 +186,19 @@ export function serviceJsonLd(path: string, name: string, description: string) {
     url: absoluteUrl(path),
     provider: { "@id": "https://jkfoundries.com/#business" },
     areaServed: { "@type": "Country", name: "India" },
+  };
+}
+
+export function aboutPageJsonLd(path: string, name: string, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${absoluteUrl(path)}#aboutpage`,
+    url: absoluteUrl(path),
+    name,
+    description,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    about: { "@id": `${siteUrl}/#business` },
+    mainEntity: { "@id": `${siteUrl}/#business` },
   };
 }

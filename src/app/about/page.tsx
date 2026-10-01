@@ -1,96 +1,300 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import JsonLd from "@/components/JsonLd";
-import { webPageJsonLd } from "@/lib/jsonld";
+import { aboutPageJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
-export const metadata = {
-  title: "About | Best Steel Casting Manufacturer in india",
+export const metadata: Metadata = {
+  title: "About Us | Best Steel Casting Foundry in Agra, India",
   description:
-    "Learn about JK Foundry, an ISO-certified steel castings manufacturer in Agra serving railway, industrial equipment, truck, trolley, and general engineering applications.",
+    "Established in 2010, JK Foundry is an ISO 9001:2015 certified steel castings manufacturer in Agra, India, producing precision cast components for truck, trolley, and industrial machinery.",
   alternates: { canonical: "/about" },
-  ...pageSocialMetadata("About | Best Steel Casting Manufacturer in India", "Learn about JK Foundry, an ISO-certified steel castings manufacturer in Agra serving railway, industrial equipment, truck, trolley, and general engineering applications.", "/about"),
+  ...pageSocialMetadata(
+    "About JK Foundry | Steel Casting Manufacturer in India",
+    "Discover JK Foundry's history, foundry infrastructure in Agra, ISO certifications, and precision steel casting solutions for industrial applications.",
+    "/about"
+  ),
 };
+
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+];
+
+const faqs = [
+  {
+    question: "Where is JK Foundry located?",
+    answer:
+      "JK Foundry is situated in the industrial hub of Foundry Nagar, Agra, Uttar Pradesh (1292/115, Shobha Nagar, Foundry Nagar, Agra - 282006, India), well-connected by national freight and railway networks across North and Central India.",
+  },
+  {
+    question: "What types of steel castings does JK Foundry manufacture?",
+    answer:
+      "We manufacture precision steel castings in carbon steel, mild steel, and alloy steel grades. Our components serve heavy commercial trucks, tractor trolleys, railways, agricultural machinery, and heavy industrial engineering applications.",
+  },
+  {
+    question: "Which quality certifications does JK Foundry maintain?",
+    answer:
+      "JK Foundry holds ISO 9001:2015 (Quality Management System), ISO 14001:2015 (Environmental Management System), ISO 45001:2018 (Occupational Health & Safety), and ZED (Zero Defect Zero Effect) certification.",
+  },
+  {
+    question: "What moulding and casting processes are available at your facility?",
+    answer:
+      "Our Agra foundry operates Green Sand Moulding, Shell Moulding, and CO2 Sand Moulding lines, complemented by induction melting furnaces, heat treatment, in-house pattern development, and comprehensive physical/chemical testing labs.",
+  },
+  {
+    question: "Can JK Foundry develop custom castings from engineering drawings or samples?",
+    answer:
+      "Yes. We specialize in custom casting development from engineering blueprints, 3D CAD models, or physical samples, including pattern/die fabrication, metallurgical testing, prototyping, and volume production.",
+  },
+];
+
+const keyStats = [
+  { value: "2010", label: "Year Established", detail: "Over a decade of casting excellence" },
+  { value: "ISO & ZED", label: "Certified Facility", detail: "ISO 9001, 14001, 45001 & ZED" },
+  { value: "100+", label: "Cast Components", detail: "Truck, trolley & industrial" },
+  { value: "Agra, UP", label: "Foundry Nagar Hub", detail: "Prime manufacturing location in India" },
+];
+
+const capabilities = [
+  {
+    title: "Green Sand Moulding",
+    description: "High-volume, cost-effective sand casting ideal for commercial vehicle components, tractor brackets, and structural parts.",
+    image: "/GreenSand.jpg",
+  },
+  {
+    title: "Shell Moulding",
+    description: "Superior dimensional tolerance and exceptional surface finish for precision industrial and automotive castings.",
+    image: "/Shell.jpg",
+  },
+  {
+    title: "CO2 Moulding",
+    description: "High-rigidity mould process ensuring structural stability and defect-free casting for heavy industrial applications.",
+    image: "/Co2.jpg",
+  },
+];
+
+const certifications = [
+  {
+    name: "ISO 9001:2015",
+    type: "Quality Management System",
+    description: "Rigorous quality controls ensuring consistent chemical, mechanical, and dimensional integrity across every batch.",
+    badge: "Quality Assured",
+  },
+  {
+    name: "ISO 14001:2015",
+    type: "Environmental Management",
+    description: "Sustainable foundry operations reducing ecological footprint and optimizing raw material recycling.",
+    badge: "Eco-Friendly",
+  },
+  {
+    name: "ISO 45001:2018",
+    type: "Occupational Health & Safety",
+    description: "Prioritizing employee safety, hazard prevention, and world-class operating procedures on the foundry floor.",
+    badge: "Workplace Safety",
+  },
+  {
+    name: "ZED Certification",
+    type: "Zero Defect Zero Effect",
+    description: "National standard recognition for sustainable, high-precision manufacturing with zero environmental impact.",
+    badge: "Zero Defect",
+  },
+];
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
-      <JsonLd data={webPageJsonLd(
-        "/about",
-        "About JK Foundry",
-        "Learn about JK Foundry, a manufacturer of precision steel cast components for truck, trolley and industrial applications.",
-      )} />
-      {/* Hero Section */}
-      <section className="relative py-24 md:py-32 bg-dark">
-  <div className="absolute inset-0 w-full h-full">
-    <Image
-      src="/about1.webp"
-      alt="JK Foundry steel casting facility"
-      fill
-      sizes="100vw"
-      className="w-full h-full object-cover opacity-40" // This creates the dark overlay effect
-    />
-  </div>
-  <div className="container mx-auto px-4 relative z-10">
-    <div className="max-w-4xl mx-auto text-center">
-      <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-6 text-white drop-shadow-lg">
-        <span className="text-white-300">About</span>{" "}
-        <span className="text-primary">JK Foundry</span>
-      </h1>
-      <p className="text-xl text-white-100 drop-shadow-lg">
-        Delivering high-quality steel castings with unmatched durability since 2010
-      </p>
-    </div>
-  </div>
-</section>
+    <div className="min-h-screen bg-white">
+      {/* Schema.org Structured Data */}
+      <JsonLd
+        data={aboutPageJsonLd(
+          "/about",
+          "About JK Foundry",
+          "Learn about JK Foundry, an ISO-certified steel castings manufacturer in Agra, India, specializing in precision components for trucks, trolleys, railways, and industrial applications."
+        )}
+      />
+      <JsonLd data={breadcrumbJsonLd(breadcrumbs)} />
+      <JsonLd data={faqJsonLd(faqs)} />
 
-      {/* Company Background */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold font-montserrat mb-6">
-                Our <span className="text-primary">Story</span>
-              </h2>
-              <p className="text-secondary mb-4">
-                JK Foundry was established in 2010 with a small induction furnace and a vision to become a leading manufacturer of high-quality steel castings.
-              </p>
-              <p className="text-secondary mb-4">
-                From humble beginnings, we have grown into one of the largest foundries in the region, expanding our operations and capabilities to meet the evolving needs of our clients.
-              </p>
-              <p className="text-secondary">
-                Under the leadership of our founders, Mr. Shailesh Agarwal, JK Foundry has built a strong reputation as a trusted partner for industries requiring precision-engineered steel castings.
-              </p>
+      {/* Hero Section */}
+      <section className="relative py-20 md:py-28 bg-dark text-white overflow-hidden">
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src="/about1.webp"
+            alt="JK Foundry steel casting manufacturing plant in Agra, India"
+            fill
+            priority
+            sizes="100vw"
+            className="w-full h-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-dark/80 to-transparent" />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Breadcrumbs */}
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <ol className="flex items-center space-x-2 text-sm text-gray-300">
+              <li>
+                <Link href="/" className="hover:text-primary transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <span className="mx-1 text-gray-500">/</span>
+              </li>
+              <li className="text-white font-medium" aria-current="page">
+                About Us
+              </li>
+            </ol>
+          </nav>
+
+          <div className="max-w-3xl">
+            <span className="inline-block bg-primary/20 text-primary-light border border-primary/30 text-xs md:text-sm uppercase tracking-wider font-semibold px-3 py-1 rounded-full mb-4">
+              Agra, Uttar Pradesh • Established 2010
+            </span>
+            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold font-montserrat mb-5 text-white drop-shadow-md leading-tight">
+              About <span className="text-primary">JK Foundry</span>
+              <span className="block text-xl md:text-2xl font-medium text-gray-200 mt-2 font-opensans">
+                Precision Steel Casting Manufacturer in India
+              </span>
+            </h1>
+            <p className="text-base md:text-lg text-gray-200 mb-8 leading-relaxed max-w-2xl">
+              Delivering high-integrity carbon and alloy steel castings engineered for unmatched durability, tight tolerances, and demanding industrial applications across India.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-colors shadow-md"
+              >
+                Request Quotation
+              </Link>
+              <Link
+                href="/products"
+                className="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-6 py-3 rounded-md font-semibold transition-colors"
+              >
+                View Product Range
+              </Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
-                  <Image
-                    src="/uncle.webp"
-                    alt="Shailesh Agarwal"
-                    fill
-                    sizes="(max-width: 750px) 50vw, 25vw"
-                    className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
-                  />
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Stats Strip */}
+      <section className="bg-gray-50 border-y border-gray-200 py-8">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {keyStats.map((stat, idx) => (
+              <div key={idx} className="text-center p-3">
+                <div className="text-3xl md:text-4xl font-extrabold text-primary font-montserrat">
+                  {stat.value}
                 </div>
-                <p className="text-center font-montserrat font-semibold text-dark mt-2">
-                  Shailesh Agarwal
+                <div className="text-base font-semibold text-gray-900 mt-1">{stat.label}</div>
+                <div className="text-xs text-gray-500 mt-0.5">{stat.detail}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Company Background & Heritage */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-2">
+                Our Heritage & Growth
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold font-montserrat mb-6 text-gray-900">
+                Pioneering Steel Casting in <span className="text-primary">Agra Since 2010</span>
+              </h2>
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  Established in 2010 in the well-known industrial hub of <strong>Foundry Nagar, Agra</strong>, JK Foundry began operations with an induction melting furnace and an unwavering commitment: to produce high-integrity steel castings capable of enduring the most demanding operating conditions.
+                </p>
+                <p>
+                  Over the past 15 years, our facility has expanded into one of the region’s premier steel foundries. We integrate modern melting furnaces, specialized sand conditioning systems, and strict metallurgical testing to manufacture components that consistently meet Indian and international standards.
+                </p>
+                <p>
+                  From heavy commercial vehicle parts and tractor trolley brackets to industrial equipment, JK Foundry partners directly with OEMs, fleet builders, and engineering enterprises nationwide.
                 </p>
               </div>
-              
-              <div className="space-y-2">
-                <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
-                  <Image
-                    src="/Param.webp"
-                    alt="Parameshti Agarwal"
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  href="/foundry/infrastructure"
+                  className="text-primary hover:text-primary-dark font-semibold inline-flex items-center group text-sm md:text-base"
+                >
+                  Explore Foundry Infrastructure
+                  <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+                </Link>
+                <span className="text-gray-300">|</span>
+                <Link
+                  href="/foundry/process"
+                  className="text-primary hover:text-primary-dark font-semibold inline-flex items-center group text-sm md:text-base"
+                >
+                  View Casting Processes
+                  <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Leadership Team (E-E-A-T) */}
+            <div>
+              <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold font-montserrat text-gray-900">
+                    Foundry Leadership & Metallurgy
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Guided by decades of practical foundry engineering and modern management
+                  </p>
                 </div>
-                <p className="text-center font-montserrat font-semibold text-dark mt-2">
-                  Parameshti Agarwal
-                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* Founder */}
+                  <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center">
+                    <div className="relative w-36 h-44 rounded-lg overflow-hidden shadow mb-3">
+                      <Image
+                        src="/uncle.webp"
+                        alt="Shailesh Agarwal - Founder & Managing Director of JK Foundry Agra"
+                        fill
+                        sizes="(max-width: 640px) 150px, 180px"
+                        className="object-contain hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="font-montserrat font-bold text-gray-900 text-lg">
+                      Shailesh Agarwal
+                    </div>
+                    <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">
+                      Founder & Managing Director
+                    </div>
+                    <p className="text-xs text-gray-600 leading-normal">
+                      Pioneered JK Foundry in 2010 with decades of deep technical expertise in induction furnace melting, metallurgy, and mold formulation.
+                    </p>
+                  </div>
+
+                  {/* Director */}
+                  <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex flex-col items-center text-center">
+                    <div className="relative w-36 h-44 rounded-lg overflow-hidden shadow mb-3">
+                      <Image
+                        src="/Param.webp"
+                        alt="Parameshti Agarwal - Director at JK Foundry Agra"
+                        fill
+                        sizes="(max-width: 640px) 150px, 180px"
+                        className="object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="font-montserrat font-bold text-gray-900 text-lg">
+                      Parameshti Agarwal
+                    </div>
+                    <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">
+                      Director – Operations & Strategy
+                    </div>
+                    <p className="text-xs text-gray-600 leading-normal">
+                      Drives modern foundry automation, quality assurance protocols, supply chain reliability, and OEM client relationships.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -98,72 +302,47 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-light">
+      <section className="py-16 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold font-montserrat text-center mb-12">
-              Our Mission & Vision
-            </h2>
+            <div className="text-center mb-12">
+              <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+                Purpose & Philosophy
+              </span>
+              <h2 className="text-3xl font-bold font-montserrat text-gray-900 mt-1">
+                Our Mission & Vision
+              </h2>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Mission */}
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8 text-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
+              <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                <div className="bg-primary/10 w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-semibold font-montserrat mb-4">
+                <h3 className="text-xl font-bold font-montserrat mb-3 text-gray-900">
                   Our Mission
                 </h3>
-                <p className="text-secondary">
-                  To deliver high-quality steel castings with unmatched
-                  durability, precision, and reliability, exceeding our
-                  customers&apos; expectations while maintaining the highest
-                  standards of service and integrity.
+                <p className="text-gray-600 leading-relaxed">
+                  To deliver precision-engineered steel castings with unmatched durability, metallurgical integrity, and dimensional accuracy, exceeding client expectations while maintaining honest partnerships and reliable delivery.
                 </p>
               </div>
 
               {/* Vision */}
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8 text-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
+              <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                <div className="bg-primary/10 w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-semibold font-montserrat mb-4">
+                <h3 className="text-xl font-bold font-montserrat mb-3 text-gray-900">
                   Our Vision
                 </h3>
-                <p className="text-secondary">
-                To become a global leader in steel castings, expanding into international markets while continuously innovating our processes and products to meet the evolving needs of the industry.
+                <p className="text-gray-600 leading-relaxed">
+                  To be recognized as India&apos;s most dependable manufacturer of custom steel castings, expanding into international markets through continuous innovation, clean green foundry practices, and advanced testing infrastructure.
                 </p>
               </div>
             </div>
@@ -171,143 +350,266 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why JK Foundry */}
-      <section className="py-16 bg-white">
+      {/* Certified Quality Management (E-E-A-T) */}
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold font-montserrat text-center mb-12">
-            Why Choose <span className="text-primary">JK Foundry</span>
-          </h2>
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+              Certified Manufacturing
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-gray-900 mt-1">
+              Quality Assurance & Certifications
+            </h2>
+            <p className="text-gray-600 mt-3 text-base md:text-lg">
+              At JK Foundry, quality is verified at every stage of production—from raw scrap selection and induction melting to spectrometer analysis and final dimensional check.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Reason 1 */}
-            <div className="bg-light p-6 rounded-lg">
-              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-primary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {certifications.map((cert, idx) => (
+              <div
+                key={idx}
+                className="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-md mb-3">
+                    {cert.badge}
+                  </span>
+                  <h3 className="text-lg font-bold font-montserrat text-gray-900 mb-1">
+                    {cert.name}
+                  </h3>
+                  <div className="text-xs font-medium text-gray-500 mb-3">{cert.type}</div>
+                  <p className="text-sm text-gray-600 leading-relaxed">{cert.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/certificates"
+              className="inline-flex items-center font-semibold text-primary hover:text-primary-dark border-b-2 border-primary pb-0.5 hover:border-primary-dark transition-colors"
+            >
+              <span>View All Official Certificates & QA Standards</span>
+              <span className="ml-2">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Moulding Processes & Capabilities */}
+      <section className="py-16 bg-gray-50 border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+              Foundry Technology
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-gray-900 mt-1">
+              Moulding & Casting Capabilities
+            </h2>
+            <p className="text-gray-600 mt-3">
+              We operate versatile moulding lines paired with medium-frequency induction furnaces to handle both high-volume casting runs and specialized custom orders.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {capabilities.map((item, idx) => (
+              <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                <div className="relative h-48 w-full">
+                  <Image src={item.image} alt={`${item.title} at JK Foundry`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold font-montserrat text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4">{item.description}</p>
+                  <Link href="/foundry/process" className="text-primary font-medium text-sm hover:underline inline-flex items-center">
+                    Learn about this process <span className="ml-1">→</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Served */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+              Applications & Sectors
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-gray-900 mt-1">
+              Industries We Serve Across India
+            </h2>
+            <p className="text-gray-600 mt-3">
+              Our steel castings are engineered for tough operating environments across critical sectors.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-6 rounded-xl border border-gray-200 bg-gray-50/50">
+              <div className="text-2xl font-bold font-montserrat text-gray-900 mb-2">Truck & Trailer</div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Suspension brackets, torque arms, axle components, and chassis brackets built for heavy commercial duty.
+              </p>
+            </div>
+            <div className="p-6 rounded-xl border border-gray-200 bg-gray-50/50">
+              <div className="text-2xl font-bold font-montserrat text-gray-900 mb-2">Railway Castings</div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                High-grade, fatigue-resistant steel cast components complying with rigorous railway safety requirements.
+              </p>
+            </div>
+            <div className="p-6 rounded-xl border border-gray-200 bg-gray-50/50">
+              <div className="text-2xl font-bold font-montserrat text-gray-900 mb-2">Tractor & Trolley</div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Heavy-duty hitches, hubs, axle brackets, and agricultural tipping trolley cast mechanisms.
+              </p>
+            </div>
+            <div className="p-6 rounded-xl border border-gray-200 bg-gray-50/50">
+              <div className="text-2xl font-bold font-montserrat text-gray-900 mb-2">Industrial Machinery</div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Wear-resistant and structural cast parts for crushing, mining, material handling, and general engineering.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/products"
+              className="bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-colors inline-block"
+            >
+              Browse Complete Products Catalog
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose JK Foundry */}
+      <section className="py-16 bg-gray-50 border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold font-montserrat text-gray-900">
+              Why Choose <span className="text-primary">JK Foundry</span>
+            </h2>
+            <p className="text-gray-600 mt-2">
+              The preferred casting partner for leading industrial OEMs and commercial manufacturers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold font-montserrat mb-2">
-                Reliability
-              </h3>
-              <p className="text-secondary">
-                Consistent quality and on-time delivery you can count on for
-                your production needs.
+              <h3 className="text-lg font-bold font-montserrat mb-2 text-gray-900">Reliability</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Consistent quality and on-time delivery you can count on for your production needs.
               </p>
             </div>
 
-            {/* Reason 2 */}
-            <div className="bg-light p-6 rounded-lg">
-              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-primary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold font-montserrat mb-2">
-                Cost-Effectiveness
-              </h3>
-              <p className="text-secondary">
-                Competitive pricing without compromising on quality or
-                performance.
+              <h3 className="text-lg font-bold font-montserrat mb-2 text-gray-900">Cost-Effectiveness</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Competitive pricing without compromising on quality or performance.
               </p>
             </div>
 
-            {/* Reason 3 */}
-            <div className="bg-light p-6 rounded-lg">
-              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-primary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold font-montserrat mb-2">
-                Timely Delivery
-              </h3>
-              <p className="text-secondary">
-                Efficient processes and logistics ensuring your orders arrive
-                when you need them.
+              <h3 className="text-lg font-bold font-montserrat mb-2 text-gray-900">Timely Delivery</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Efficient processes and logistics ensuring your orders arrive when you need them.
               </p>
             </div>
 
-            {/* Reason 4 */}
-            <div className="bg-light p-6 rounded-lg">
-              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-primary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
-                  />
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold font-montserrat mb-2">
-                Customization
-              </h3>
-              <p className="text-secondary">
-                Tailored solutions and multiple alloy options to meet your
-                specific requirements.
+              <h3 className="text-lg font-bold font-montserrat mb-2 text-gray-900">Customization</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Tailored solutions and multiple alloy options to meet your specific requirements.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Frequently Asked Questions (SEO Rich Results) */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+              Got Questions?
+            </span>
+            <h2 className="text-3xl font-bold font-montserrat text-gray-900 mt-1">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600 mt-2">
+              Common questions about JK Foundry&apos;s capabilities, certifications, and manufacturing facilities.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <details
+                key={index}
+                className="group border border-gray-200 rounded-xl bg-gray-50/50 p-5 transition-all duration-200 open:bg-white open:shadow-sm"
+              >
+                <summary className="font-semibold font-montserrat text-gray-900 cursor-pointer list-none flex justify-between items-center text-base md:text-lg">
+                  <span>{faq.question}</span>
+                  <span className="text-primary text-xl font-bold ml-4 transition-transform group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <div className="mt-3 text-sm md:text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                  {faq.answer}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-dark text-white">
+      <section className="py-16 md:py-20 bg-dark text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold font-montserrat mb-6">
-            Ready to Partner With Us?
+          <h2 className="text-3xl md:text-4xl font-bold font-montserrat mb-4">
+            Partner With a Trusted Steel Foundry
           </h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Experience the JK Foundry difference. Contact us today to discuss
-            your steel casting needs or request samples.
+          <p className="text-base md:text-lg mb-8 max-w-2xl mx-auto text-gray-300">
+            Contact JK Foundry today to discuss your technical drawings, alloy specifications, or request initial casting samples.
           </p>
-          <Link
-            href="/contact"
-            className="bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-opacity-90 transition-colors inline-block"
-          >
-            Get in Touch
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/contact"
+              className="bg-primary text-white px-8 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-colors shadow-lg"
+            >
+              Get in Touch
+            </Link>
+            <Link
+              href="/foundry/infrastructure"
+              className="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-3 rounded-md font-semibold transition-colors"
+            >
+              Explore Infrastructure
+            </Link>
+          </div>
         </div>
       </section>
     </div>
   );
 }
+

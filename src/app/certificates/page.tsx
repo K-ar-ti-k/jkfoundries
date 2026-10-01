@@ -69,6 +69,7 @@ const CertificateCard = ({ certificate }: { certificate: Certificate }) => {
           src={certificate.image}
           alt={certificate.name}
           fill
+          priority
           sizes="(max-width: 768px) 100vw, 25vw"
           className="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-300"
         />

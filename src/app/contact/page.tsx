@@ -105,7 +105,7 @@ function ContactContent() {
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/call.webp"
-            alt="certificate Background"
+            alt="Contact JK Foundry Sales and Engineering Team in Agra"
             fill
             className="object-cover opacity-40"
             priority

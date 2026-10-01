@@ -84,7 +84,7 @@ export default async function BlogPage() {
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/blogs.webp"
-            alt="blogs Background"
+            alt="JK Foundry Steel Casting Technical Blog and Insights"
             fill
             className="object-cover opacity-40"
             priority
@@ -99,7 +99,7 @@ export default async function BlogPage() {
               <span className="text-primary">Blogs</span>
             </h1>
             <p className="text-xl text-white-200 drop-shadow-lg">
-              Insights, updates, and knowledge about steel casting and manufacturing
+              Steel Casting Engineering & Foundry Knowledge Base
             </p>
           </div>
         </div>

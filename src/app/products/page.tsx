@@ -48,11 +48,8 @@ export default async function ProductsPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-6">
-              Our <span className="text-primary">Products</span>
+              Steel Cast Components & Products for Truck, Trolley & Industrial Equipment
             </h1>
-            <p className="text-xl">
-              Steel cast components for trucks, trolleys, industrial equipment, and general engineering
-            </p>
           </div>
         </div>
       </section>
