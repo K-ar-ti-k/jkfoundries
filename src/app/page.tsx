@@ -248,7 +248,7 @@ export default async function Home() {
           <RecentProducts products={serializableProducts} />
           <div className="text-center mt-12">
             <Link
-              href="/foundry/products"
+              href="/products"
               className="bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-opacity-90 transition-colors inline-block"
             >
               View All Products

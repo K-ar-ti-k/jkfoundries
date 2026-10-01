@@ -76,13 +76,13 @@ const Navbar = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/foundry/products" className="flex items-center justify-between text-[#fff8f0] hover:text-primary transition-colors">
+                      <Link href="/products" className="flex items-center justify-between text-[#fff8f0] hover:text-primary transition-colors">
                         <span>Products</span>
                         <span className="text-[#a99485]">→</span>
                       </Link>
                     </li>
                     <li>
-                      <Link href="/foundry/infrastructure" className="flex items-center justify-between text-[#fff8f0] hover:text-primary transition-colors">
+                      <Link href="/infrastructure" className="flex items-center justify-between text-[#fff8f0] hover:text-primary transition-colors">
                         <span>Infrastructure</span>
                         <span className="text-[#a99485]">→</span>
                       </Link>

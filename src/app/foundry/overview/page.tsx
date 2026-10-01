@@ -38,7 +38,7 @@ export default async function FoundryOverviewPage() {
                 <Link href="/contact" className="bg-primary text-white px-5 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
                   Request Samples
                 </Link>
-                <Link href="/foundry/products" className="text-gray-900 border border-gray-900 px-5 py-2 rounded-md font-medium hover:bg-gray-900 hover:text-white transition-colors">
+                <Link href="/products" className="text-gray-900 border border-gray-900 px-5 py-2 rounded-md font-medium hover:bg-gray-900 hover:text-white transition-colors">
                   View Products
                 </Link>
               </div>
@@ -151,7 +151,7 @@ export default async function FoundryOverviewPage() {
           </div>
           <p className="mt-4 text-secondary leading-[1.8]">
             Modern melting, molding, heat treatment, and testing facilities tuned for throughput and consistency.
-            See details on our <Link href="/foundry/infrastructure" className="text-gray-900 underline underline-offset-4">Infrastructure</Link> page.
+            See details on our <Link href="/infrastructure" className="text-gray-900 underline underline-offset-4">Infrastructure</Link> page.
           </p>
         </section>
 

@@ -4,24 +4,49 @@ export const websiteJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": "LocalBusiness,ManufacturingBusiness",
       "@id": `${siteUrl}/#business`,
       name: "JK Foundry",
       url: siteUrl,
       logo: absoluteUrl("/Logo.webp"),
       image: absoluteUrl("/Logo.webp"),
       description:
-        "Manufacturer of steel cast components for trucks, trolleys, industrial equipment, and general engineering.",
+        "ISO 9001:2015 certified manufacturer of precision steel cast components for commercial trucks, tractor trolleys, and industrial machinery.",
       industry: "Steel casting manufacturing",
       foundingDate: "2010",
       knowsAbout: [
         "Steel casting",
         "Truck components",
-        "Trolley components",
+        "Tractor Trolley components",
         "Industrial castings",
         "Green sand moulding",
         "Shell moulding",
         "CO2 moulding",
+        "Alloy steel casting",
+        "Carbon steel casting",
+        "Stainless steel casting",
+      ],
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          name: "ISO 9001:2015",
+          credentialCategory: "Quality Management System",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          name: "ISO 14001:2015",
+          credentialCategory: "Environmental Management System",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          name: "ISO 45001:2018",
+          credentialCategory: "Occupational Health & Safety",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          name: "ZED Certification",
+          credentialCategory: "Zero Defect Zero Effect",
+        },
       ],
       areaServed: {
         "@type": "Country",
@@ -49,7 +74,7 @@ export const websiteJsonLd = {
         "https://x.com/JkFoundry",
         "https://www.facebook.com/profile.php?id=61574429686781",
         "https://www.instagram.com/jk.foundry/",
-        "https://www.linkedin.com/company/jk-foundry/about/?viewAsMember=true",
+        "https://www.linkedin.com/company/jkfoundry/",
       ],
     },
     {
@@ -58,7 +83,7 @@ export const websiteJsonLd = {
       url: siteUrl,
       name: "JK Foundry",
       publisher: {
-        "@id": "https://jkfoundries.com/#business",
+        "@id":`${siteUrl}/#business`,
       },
       inLanguage: "en-IN",
     },
@@ -73,8 +98,49 @@ export function webPageJsonLd(path: string, name: string, description: string) {
     url: absoluteUrl(path),
     name,
     description,
-    isPartOf: { "@id": "https://jkfoundries.com/#website" },
-    about: { "@id": "https://jkfoundries.com/#business" },
+    isPartOf: { "@id":`${siteUrl}#website` },
+    about: { "@id": `${siteUrl}/#business` },
+  };
+}
+
+export function aboutPageJsonLd(path: string, name: string, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${absoluteUrl(path)}#aboutpage`,
+    url: absoluteUrl(path),
+    name,
+    description,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    about: { "@id": `${siteUrl}/#business` },
+    mainEntity: { "@id": `${siteUrl}/#business` },
+  };
+}
+
+export function contactPageJsonLd(path: string, name: string, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${absoluteUrl(path)}#contactpage`,
+    url: absoluteUrl(path),
+    name,
+    description,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    about: { "@id": `${siteUrl}/#business` },
+    mainEntity: { "@id": `${siteUrl}/#business` },
+  };
+}
+
+export function collectionPageJsonLd(path: string, name: string, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${absoluteUrl(path)}#collectionpage`,
+    url: absoluteUrl(path),
+    name,
+    description,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    about: { "@id": `${siteUrl}/#business` },
   };
 }
 
@@ -99,8 +165,8 @@ export function articleJsonLd(
         ? image
         : absoluteUrl(image)
       : absoluteUrl("/Logo.webp"),
-    author: { "@id": "https://jkfoundries.com/#business" },
-    publisher: { "@id": "https://jkfoundries.com/#business" },
+    author: { "@id": `${siteUrl}/#business` },
+    publisher: { "@id": `${siteUrl}/#business` },
     mainEntityOfPage: { "@id": `${absoluteUrl(path)}#webpage` },
   };
 }
@@ -122,9 +188,9 @@ export function productJsonLd(
     image: image.startsWith("http") ? image : absoluteUrl(image),
     material,
     weight,
-    url: `https://jkfoundries.com${path}`,
-    brand: { "@id": "https://jkfoundries.com/#business" },
-    manufacturer: { "@id": "https://jkfoundries.com/#business" },
+    url: absoluteUrl(path),
+    brand: { "@id": `${siteUrl}/#business` },
+    manufacturer: { "@id": `${siteUrl}/#business` },
   };
 }
 
@@ -170,8 +236,8 @@ export function itemListJsonLd(
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      url: absoluteUrl(item.url),
-      ...(item.image ? { image: item.image } : {}),
+      url: item.url.startsWith("http") ? item.url : absoluteUrl(item.url),
+      ...(item.image ? { image: item.image.startsWith("http") ? item.image : absoluteUrl(item.image) } : {}),
     })),
   };
 }
@@ -184,21 +250,8 @@ export function serviceJsonLd(path: string, name: string, description: string) {
     name,
     description,
     url: absoluteUrl(path),
-    provider: { "@id": "https://jkfoundries.com/#business" },
+    provider: { "@id": `${siteUrl}/#business` },
     areaServed: { "@type": "Country", name: "India" },
   };
 }
 
-export function aboutPageJsonLd(path: string, name: string, description: string) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "@id": `${absoluteUrl(path)}#aboutpage`,
-    url: absoluteUrl(path),
-    name,
-    description,
-    isPartOf: { "@id": `${siteUrl}/#website` },
-    about: { "@id": `${siteUrl}/#business` },
-    mainEntity: { "@id": `${siteUrl}/#business` },
-  };
-}

@@ -221,7 +221,7 @@ export default function AboutPage() {
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
-                  href="/foundry/infrastructure"
+                  href="/infrastructure"
                   className="text-primary hover:text-primary-dark font-semibold inline-flex items-center group text-sm md:text-base"
                 >
                   Explore Foundry Infrastructure
@@ -229,7 +229,7 @@ export default function AboutPage() {
                 </Link>
                 <span className="text-gray-300">|</span>
                 <Link
-                  href="/foundry/process"
+                  href="/foundry/casting-process"
                   className="text-primary hover:text-primary-dark font-semibold inline-flex items-center group text-sm md:text-base"
                 >
                   View Casting Processes
@@ -421,7 +421,7 @@ export default function AboutPage() {
                 <div className="p-6">
                   <h3 className="text-xl font-bold font-montserrat text-gray-900 mb-2">{item.title}</h3>
                   <p className="text-sm text-gray-600 leading-relaxed mb-4">{item.description}</p>
-                  <Link href="/foundry/process" className="text-primary font-medium text-sm hover:underline inline-flex items-center">
+                  <Link href="/foundry/casting-process" className="text-primary font-medium text-sm hover:underline inline-flex items-center">
                     Learn about this process <span className="ml-1">→</span>
                   </Link>
                 </div>

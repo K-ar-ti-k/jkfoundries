@@ -145,7 +145,7 @@ export default async function FoundryProcessPage() {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Selection Guidance</h3>
             <p className="text-secondary leading-[1.8]">
               We recommend the moulding process based on the component&apos;s geometry, weight, tolerances, and batch size.
-              Our engineering team collaborates to optimize quality, cost, and lead times for your specific requirements. Explore our <Link href="/foundry/products" className="text-gray-900 underline underline-offset-4">foundry products</Link> or <Link href="/contact" className="text-gray-900 underline underline-offset-4">discuss your component requirements</Link>.
+              Our engineering team collaborates to optimize quality, cost, and lead times for your specific requirements. Explore our <Link href="/products" className="text-gray-900 underline underline-offset-4">foundry products</Link> or <Link href="/contact" className="text-gray-900 underline underline-offset-4">discuss your component requirements</Link>.
             </p>
           </div>
         </section>
