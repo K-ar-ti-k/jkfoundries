@@ -6,13 +6,13 @@ import { aboutPageJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Us | Best Steel Casting Foundry in Agra, India",
+  title: "Steel Casting Foundry in Agra",
   description:
-    "Established in 2010, JK Foundry is an ISO 9001:2015 certified steel castings manufacturer in Agra, India, producing precision cast components for truck, trolley, and industrial machinery.",
+    "Learn about JK Foundry, an ISO 9001:2015-certified steel foundry in Agra producing precision cast components for trucks and industry since 2010.",
   alternates: { canonical: "/about" },
   ...pageSocialMetadata(
-    "About JK Foundry | Steel Casting Manufacturer in India",
-    "Discover JK Foundry's history, foundry infrastructure in Agra, ISO certifications, and precision steel casting solutions for industrial applications.",
+    "Steel Casting Foundry in Agra | JK Foundry",
+    "Learn about JK Foundry, an ISO 9001:2015-certified steel foundry in Agra producing precision cast components for trucks and industry since 2010.",
     "/about"
   ),
 };

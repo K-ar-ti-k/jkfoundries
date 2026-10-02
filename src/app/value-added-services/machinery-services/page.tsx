@@ -6,13 +6,13 @@ import { serviceJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
 export const metadata = {
-  title: "Machinery and CNC Services for Cast Components",
+  title: "CNC Machining for Steel Castings",
   description:
-    "Discover JK Foundry's precision machining, finishing, and assembly capabilities for steel cast components.",
+    "Add CNC machining, fettling, finishing, and assembly to steel castings through JK Foundry's value-added manufacturing services.",
   alternates: { canonical: "/value-added-services/machinery-services" },
   ...pageSocialMetadata(
-    "Machinery and CNC Services for Cast Components",
-    "Discover JK Foundry's precision machining, finishing, and assembly capabilities for steel cast components.",
+    "CNC Machining for Steel Castings | JK Foundry",
+    "Add CNC machining, fettling, finishing, and assembly to steel castings through JK Foundry's value-added manufacturing services.",
     "/value-added-services/machinery-services",
   ),
 };

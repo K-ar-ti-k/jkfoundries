@@ -21,11 +21,11 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "JK Foundry | Best Steel Casting Manufacturer in India",
+    default: "Steel Casting Manufacturer in India | JK Foundry",
     template: "%s | JK Foundry",
   },
   description:
-    "JK Foundry manufactures precision steel cast components for trucks, trolleys, industrial equipment, and general engineering across India.",
+    "JK Foundry manufactures precision steel castings in Agra, India for trucks, trolleys, and industrial equipment, backed by controlled processes and quality inspection.",
   keywords: [
     "steel casting manufacturer in India",
     "steel casting foundry in India",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "JK Foundry",
-    title: "JK Foundry | Steel Casting Manufacturer in India",
+    title: "Steel Casting Manufacturer in India | JK Foundry",
     description:
-      "Precision steel cast components for trucks, trolleys, industrial equipment, and general engineering.",
+      "Precision steel castings from Agra, India for trucks, trolleys, and industrial equipment, made with controlled processes and quality inspection.",
     images: [
       {
         url: "/Logo.webp",
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
     card: "summary",
     site: "@JkFoundry",
     creator: "@JkFoundry",
-    title: "JK Foundry | Steel Casting Manufacturer in India",
+    title: "Steel Casting Manufacturer in India | JK Foundry",
     description:
-      "Precision steel cast components for trucks, trolleys, industrial equipment, and general engineering.",
+      "Precision steel castings from Agra, India for trucks, trolleys, and industrial equipment, made with controlled processes and quality inspection.",
   },
   icons: {
     icon: "/favicon.svg",

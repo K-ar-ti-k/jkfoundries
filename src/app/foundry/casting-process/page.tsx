@@ -32,9 +32,9 @@ const processPresentation: Omit<ProcessPresentation, keyof ProcessItem>[] = [
 export const metadata = {
   title: "Steel Casting Processes",
   description:
-    "Learn how JK Foundry uses green sand, shell, and CO2 moulding processes for reliable steel cast components across a wide weight range.",
+    "Compare green sand, shell, and CO2 moulding at JK Foundry. Find the right process for your steel casting's size, detail, and production needs.",
   alternates: { canonical: "/foundry/process" },
-  ...pageSocialMetadata("Steel Casting Processes | JK Foundry", "Learn how JK Foundry uses green sand, shell, and CO2 moulding processes for reliable steel cast components across a wide weight range.", "/foundry/process"),
+  ...pageSocialMetadata("Steel Casting Processes | JK Foundry", "Compare green sand, shell, and CO2 moulding at JK Foundry. Find the right process for your steel casting's size, detail, and production needs.", "/foundry/process"),
 };
 
 export default async function FoundryProcessPage() {

@@ -4,11 +4,11 @@ import { webPageJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
 export const metadata = {
-  title: "Manufacturing Partners | JK Foundry Steel Castings",
+  title: "Steel Casting Manufacturing Partners",
   description:
-    "Learn about JK Foundry's partnerships with manufacturers across the truck, trolley, industrial equipment, and general engineering sectors.",
+    "See how JK Foundry supports truck, trolley, and industrial manufacturers with dependable steel cast components and production partnerships.",
   alternates: { canonical: "/partners" },
-  ...pageSocialMetadata("Manufacturing Partners | JK Foundry Steel Castings", "Learn about JK Foundry's partnerships with manufacturers across the truck, trolley, industrial equipment, and general engineering sectors.", "/partners"),
+  ...pageSocialMetadata("Steel Casting Manufacturing Partners | JK Foundry", "See how JK Foundry supports truck, trolley, and industrial manufacturers with dependable steel cast components and production partnerships.", "/partners"),
 };
 
 // Partner data (replace with actual partners when available)

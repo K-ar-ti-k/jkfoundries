@@ -6,13 +6,13 @@ import { serviceJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
 export const metadata = {
-  title: "Pattern, Mould, and Die Making Services",
+  title: "Foundry Pattern and Tooling Services",
   description:
-    "JK Foundry designs and manufactures patterns, moulds, and dies for accurate, repeatable steel casting production.",
+    "JK Foundry develops patterns, moulds, and dies for accurate dimensions, reliable metal flow, and repeatable steel casting production.",
   alternates: { canonical: "/value-added-services/pattern-mould-die-making" },
   ...pageSocialMetadata(
-    "Pattern, Mould, and Die Making Services",
-    "JK Foundry designs and manufactures patterns, moulds, and dies for accurate, repeatable steel casting production.",
+    "Foundry Pattern and Tooling Services | JK Foundry",
+    "JK Foundry develops patterns, moulds, and dies for accurate dimensions, reliable metal flow, and repeatable steel casting production.",
     "/value-added-services/pattern-mould-die-making",
   ),
 };

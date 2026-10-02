@@ -6,13 +6,13 @@ import { itemListJsonLd, webPageJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
 export const metadata = {
-  title: "Steel Cast Components for Trucks and Industry",
+  title: "Steel Cast Components",
   description:
-    "Explore JK Foundry's steel cast components for trucks, trolleys, industrial equipment, and general engineering applications across India.",
+    "Browse JK Foundry steel cast components for trucks, trolleys, industrial equipment, and engineering. Request specifications or a production quote.",
   alternates: { canonical: "/products" },
   ...pageSocialMetadata(
-    "Steel Cast Components for Trucks and Industry | JK Foundry",
-    "Explore JK Foundry's steel cast components for trucks, trolleys, industrial equipment, and general engineering applications across India.",
+    "Steel Cast Components | JK Foundry",
+    "Browse JK Foundry steel cast components for trucks, trolleys, industrial equipment, and engineering. Request specifications or a production quote.",
     "/products",
   ),
 };

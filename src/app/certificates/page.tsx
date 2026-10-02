@@ -5,11 +5,11 @@ import { webPageJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
 export const metadata = {
-  title: "Steel Casting Quality Certificates",
+  title: "Steel Casting Quality Certifications",
   description:
-    "View JK Foundry certifications for quality, occupational safety, environmental management, and responsible manufacturing.",
+    "Review JK Foundry's ISO certifications for quality management, workplace safety, environmental responsibility, and reliable steel casting production.",
   alternates: { canonical: "/certificates" },
-  ...pageSocialMetadata("Steel Casting Quality Certificates | JK Foundry", "View JK Foundry certifications for quality, occupational safety, environmental management, and responsible manufacturing.", "/certificates"),
+  ...pageSocialMetadata("Steel Casting Quality Certifications | JK Foundry", "Review JK Foundry's ISO certifications for quality management, workplace safety, environmental responsibility, and reliable steel casting production.", "/certificates"),
 };
 
 // Certificate data

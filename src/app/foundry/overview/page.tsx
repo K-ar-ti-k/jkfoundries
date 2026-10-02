@@ -6,11 +6,11 @@ import { webPageJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
 export const metadata = {
-  title: "Overview | Best Steel Casting Manufacturer",
+  title: "Overview | Steel Casting Manufacturer",
   description:
-    "Learn about JK Foundry's steel casting manufacturing capabilities, materials, process control, quality systems, and industrial applications.",
+    "Explore JK Foundry's steel casting materials, production processes, quality controls, and applications for truck, and industrial components.",
   alternates: { canonical: "/foundry/overview" },
-  ...pageSocialMetadata("Overview | Best Steel Casting Manufacturer | JK Foundry", "Learn about JK Foundry's steel casting manufacturing capabilities, materials, process control, quality systems, and industrial applications.", "/foundry/overview"),
+  ...pageSocialMetadata("Steel Casting Capabilities | JK Foundry", "Explore JK Foundry's steel casting materials, production processes, quality controls, and applications for truck, rail, and industrial components.", "/foundry/overview"),
 };
 
 export default async function FoundryOverviewPage() {

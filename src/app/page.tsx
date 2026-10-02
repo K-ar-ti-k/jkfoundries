@@ -7,7 +7,7 @@ import { webPageJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
 const homeDescription =
-  "JK Foundry Manufactures precision steel castings for trucks, trolleys, industrial equipment, and general engineering applications across India.";
+  "Source precision steel castings from JK Foundry in Agra, India for trucks, trolleys, and industrial machinery. Request a quote for your component.";
 
 export const metadata: Metadata = {
   title: "Best Steel Casting Manufacturer in India | JK Foundry",

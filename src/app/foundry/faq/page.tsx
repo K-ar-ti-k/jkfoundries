@@ -78,11 +78,11 @@ const defaultFaqs: QAItem[] = [
 ];
 
 export const metadata = {
-  title: "Foundry FAQ | Steel Casting Quality and Inspection",
+  title: "Steel Casting FAQ",
   description:
-    "Read common questions about JK Foundry's steel casting quality assurance, inspection, process control, traceability, and certifications.",
+    "Get answers on JK Foundry's steel casting methods, inspection, certifications, samples, and quotation process.",
   alternates: { canonical: "/foundry/q-a" },
-  ...pageSocialMetadata("Foundry FAQ | Steel Casting Quality and Inspection", "Read common questions about JK Foundry's steel casting quality assurance, inspection, process control, traceability, and certifications.", "/foundry/q-a"),
+  ...pageSocialMetadata("Steel Casting FAQ | JK Foundry", "Get answers on JK Foundry's steel casting methods, inspection, traceability, certifications, samples, and quotation process.", "/foundry/q-a"),
 };
 
 export default async function FoundryQAPage() {

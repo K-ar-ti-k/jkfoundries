@@ -9,13 +9,13 @@ import { pageSocialMetadata } from "@/lib/site";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Steel Casting Blog",
+  title: "Steel Casting Insights",
   description:
-    "Read JK Foundry insights about steel casting technology, foundry processes, automation, equipment, and industrial manufacturing.",
+    "Explore expert insights from JK Foundry on steel casting processes, foundry automation, equipment, and manufacturing quality.",
   alternates: { canonical: "/blog" },
   ...pageSocialMetadata(
-    "Steel Casting Blog | JK Foundry",
-    "Read JK Foundry insights about steel casting technology, foundry processes, automation, equipment, and industrial manufacturing.",
+    "Steel Casting Insights | JK Foundry",
+    "Explore expert insights from JK Foundry on steel casting processes, foundry automation, equipment, and manufacturing quality.",
     "/blog",
   ),
 };

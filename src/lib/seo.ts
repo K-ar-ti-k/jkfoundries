@@ -138,7 +138,7 @@ export function buildBlogSeo(title: string, excerpt: string, content: string) {
     : "JK Foundry Blog";
 
   const baseDescription = excerptText || sentenceFromText(contentText) || "Learn more about our foundry expertise and industrial casting solutions.";
-  const metaDescription = baseDescription.length > 155 ? `${baseDescription.slice(0, 152).trim()}...` : baseDescription;
+  const metaDescription = baseDescription.length > 149 ? `${baseDescription.slice(0, 146).trim()}...` : baseDescription;
 
   return {
     primaryKeyword,

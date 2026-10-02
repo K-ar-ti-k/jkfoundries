@@ -40,6 +40,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
+  const title = trimMetadata(post?.title || "Steel Casting Insights", 45);
+  const description = trimMetadata(
+    post?.excerpt || "Expert insights on steel casting, foundry processes, and manufacturing from JK Foundry.",
+    149,
+  );
   const image = post?.image?.startsWith("http")
     ? post.image
     : post?.image
@@ -47,24 +52,18 @@ export async function generateMetadata({
       : "https://jkfoundries.com/Logo.webp";
 
   return {
-    title: trimMetadata(post?.title || "Blog", 45),
-    description: trimMetadata(
-      post?.excerpt || "Insights about steel casting and industrial manufacturing.",
-      155,
-    ),
+    title,
+    description,
     alternates: { canonical: `/blog/${slug}` },
     ...pageSocialMetadata(
-      trimMetadata(post?.title || "Blog", 60),
-      trimMetadata(post?.excerpt || "Insights about steel casting and industrial manufacturing.", 155),
+      `${title} | JK Foundry`,
+      description,
       `/blog/${slug}`,
     ),
     openGraph: {
       type: "article",
-      title: trimMetadata(post?.title || "Blog", 60),
-      description: trimMetadata(
-        post?.excerpt || "Insights about steel casting and industrial manufacturing.",
-        155,
-      ),
+      title: `${title} | JK Foundry`,
+      description,
       url: `/blog/${slug}`,
       images: [{ url: image, alt: post?.title || "JK Foundry article" }],
     },

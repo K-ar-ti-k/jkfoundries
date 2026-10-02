@@ -25,15 +25,20 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   if (!product) return { title: "Product Not Found" };
 
   const description = productDescription(product);
+  const title = `${product.name} | Steel Casting Component`;
+  const metaTitle = title.length > 45 ? `${title.slice(0, 42).trim()}...` : title;
+  const metaDescription = description.length > 149
+    ? `${description.slice(0, 146).trim()}...`
+    : description;
   return {
-    title: `${product.name} | Steel Cast Component`,
-    description,
+    title: metaTitle,
+    description: metaDescription,
     alternates: { canonical: `/products/${id}` },
-    ...pageSocialMetadata(`${product.name} | Steel Cast Component | JK Foundry`, description, `/products/${id}`),
+    ...pageSocialMetadata(`${metaTitle} | JK Foundry`, metaDescription, `/products/${id}`),
     openGraph: {
       type: "website",
-      title: `${product.name} | JK Foundry`,
-      description,
+      title: `${metaTitle} | JK Foundry`,
+      description: metaDescription,
       url: `/products/${id}`,
       images: [{ url: product.image || "/placeholder.jpg", alt: product.name }],
     },

@@ -4,15 +4,15 @@ import { webPageJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact | Best Steel Casting Manufacturer in India",
+  title: "Contact | Steel Casting Manufacturer in Agra",
   description:
-    "Contact JK Foundry, a steel casting manufacturer in India, for truck, trolley, industrial equipment, and general engineering components.",
+    "Request a quote from JK Foundry for precision steel castings. Share your drawings, material, quantity, and application with our Agra team.",
   alternates: {
     canonical: "/contact",
   },
   ...pageSocialMetadata(
-    "Contact | Best Steel Casting Manufacturer in India | JK Foundry",
-    "Contact JK Foundry, a steel casting manufacturer in India, for truck, trolley, industrial equipment, and general engineering components.",
+    "Contact JK Foundry | Steel Casting Quotes",
+    "Request a quote from JK Foundry for precision steel castings. Share your drawings, material, quantity, and application with our Agra team.",
     "/contact",
   ),
 };

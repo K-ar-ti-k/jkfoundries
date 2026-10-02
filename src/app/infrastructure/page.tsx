@@ -8,9 +8,9 @@ import { pageSocialMetadata } from "@/lib/site";
 export const metadata = {
   title: "Foundry Infrastructure and Equipment",
   description:
-    "Explore JK Foundry's melting, moulding, fettling, heat treatment, testing, and manufacturing facilities for steel cast components.",
+    "See JK Foundry's melting, moulding, fettling, heat-treatment, testing, and inspection equipment for reliable steel cast production.",
   alternates: { canonical: "/infrastructure" },
-  ...pageSocialMetadata("Foundry Infrastructure and Equipment | JK Foundry", "Explore JK Foundry's melting, moulding, fettling, heat treatment, testing, and manufacturing facilities for steel cast components.", "/infrastructure"),
+  ...pageSocialMetadata("Foundry Equipment and Capabilities | JK Foundry", "See JK Foundry's melting, moulding, fettling, heat-treatment, testing, and inspection equipment for reliable steel cast production.", "/infrastructure"),
 };
 
 // Infrastructure Unit Component
