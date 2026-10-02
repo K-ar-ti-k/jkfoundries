@@ -88,7 +88,7 @@ export default async function BlogPage() {
             fill
             className="object-cover opacity-40"
             priority
-            quality={100}
+            quality={80}
             sizes="100vw"
           />
         </div>

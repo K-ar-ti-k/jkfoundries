@@ -436,54 +436,57 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <span className="text-primary text-sm font-semibold tracking-wider uppercase">
-              Applications & Sectors
+              Industries We Serve
             </span>
             <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-gray-900 mt-1">
-              Industries We Serve Across India
+              Serving Diverse Industrial Applications
             </h2>
             <p className="text-gray-600 mt-3">
-              Our steel castings are engineered for tough operating environments across critical sectors.
+              JK Foundry&apos;s steel castings are engineered for durability and precision, catering to a wide range of industries including commercial vehicles, agriculture, railways, and heavy industrial machinery.
             </p>
           </div>
+          <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 justify-items-center">
+            <div className="w-full max-w-sm bg-gray-50 border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="text-primary mb-4">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 rounded-xl border border-gray-200 bg-gray-50/50">
-              <div className="text-2xl font-bold font-montserrat text-gray-900 mb-2">Truck & Trailer</div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Suspension brackets, torque arms, axle components, and chassis brackets built for heavy commercial duty.
-              </p>
-            </div>
-            <div className="p-6 rounded-xl border border-gray-200 bg-gray-50/50">
-              <div className="text-2xl font-bold font-montserrat text-gray-900 mb-2">Railway Castings</div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                High-grade, fatigue-resistant steel cast components complying with rigorous railway safety requirements.
-              </p>
-            </div>
-            <div className="p-6 rounded-xl border border-gray-200 bg-gray-50/50">
-              <div className="text-2xl font-bold font-montserrat text-gray-900 mb-2">Tractor & Trolley</div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Heavy-duty hitches, hubs, axle brackets, and agricultural tipping trolley cast mechanisms.
-              </p>
-            </div>
-            <div className="p-6 rounded-xl border border-gray-200 bg-gray-50/50">
-              <div className="text-2xl font-bold font-montserrat text-gray-900 mb-2">Industrial Machinery</div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Wear-resistant and structural cast parts for crushing, mining, material handling, and general engineering.
-              </p>
-            </div>
-          </div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-6a2 2 0 012-2h6a2 2 0 012 2v6m-6 4h.01M12 3v4m0 0H8m4 0h4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold font-montserrat text-gray-900 mb-2">Commercial Vehicles</h3>
 
-          <div className="text-center mt-10">
-            <Link
-              href="/products"
-              className="bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-colors inline-block"
-            >
-              Browse Complete Products Catalog
-            </Link>
+
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Precision castings for trucks, buses, and heavy-duty transport components ensuring strength and reliability on the road.
+              </p>
+            </div>
+            <div className="w-full max-w-sm bg-gray-50 border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="text-primary mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7h18M3 12h18M3 17h18" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold font-montserrat text-gray-900 mb-2">Agriculture</h3>
+
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Durable castings for tractors, trolleys, and farm machinery components designed to withstand harsh agricultural environments.
+              </p>
+            </div>
+            <div className="w-full max-w-sm bg-gray-50 border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="text-primary mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold font-montserrat text-gray-900 mb-2">Industrial Machinery</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Precision castings for heavy industrial equipment, ensuring performance, durability, and compliance with engineering standards.
+              </p>
+            </div>
           </div>
         </div>
       </section>
-
       {/* Why Choose JK Foundry */}
       <section className="py-16 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4">
@@ -601,7 +604,7 @@ export default function AboutPage() {
               Get in Touch
             </Link>
             <Link
-              href="/foundry/infrastructure"
+              href="/infrastructure"
               className="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-3 rounded-md font-semibold transition-colors"
             >
               Explore Infrastructure

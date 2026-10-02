@@ -257,7 +257,7 @@ const Navbar = () => {
                   <div className="grid grid-cols-2 gap-3">
                     <Link href="/foundry/overview" className="text-[#fff8f0] hover:text-primary text-sm">Overview</Link>
                     <Link href="/foundry/products" className="text-[#fff8f0] hover:text-primary text-sm">Products</Link>
-                    <Link href="/foundry/infrastructure" className="text-[#fff8f0] hover:text-primary text-sm">Infrastructure</Link>
+                    <Link href="/infrastructure" className="text-[#fff8f0] hover:text-primary text-sm">Infrastructure</Link>
                     <Link href="/foundry/q-a" className="text-[#fff8f0] hover:text-primary text-sm">Q / A</Link>
                     <Link href="/foundry/process" className="text-[#fff8f0] hover:text-primary text-sm">Process</Link>
                   </div>

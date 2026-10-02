@@ -12,7 +12,7 @@ Foundry equipment is key to metal casting. These advanced machines and tools hel
 
 Learning about foundry equipment is more than just tech talk. It's about understanding the detailed process that turns raw materials into solutions that drive innovation in many fields.
 
-Equipment selection is closely connected to the [steel casting processes](/foundry/process) and [foundry infrastructure](/foundry/infrastructure) needed for consistent production.
+Equipment selection is closely connected to the [steel casting processes](/foundry/casting-process) and [foundry infrastructure](/infrastructure) needed for consistent production.
 
 ## Key Takeaways
 
