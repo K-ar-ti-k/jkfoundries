@@ -506,12 +506,10 @@ export const getPageContent = async (slug: string): Promise<PageContent | null> 
   if (!isFirebaseConfigured) return null;
 
   try {
-    return await getCached(`sitePages:slug:${slug}`, async () => {
-      const ref = doc(db, "sitePages", slug);
-      const snap = await getDoc(ref);
-      if (!snap.exists()) return null;
-      return { ...(snap.data() as PageContent), slug };
-    });
+    const ref = doc(db, "sitePages", slug);
+    const snap = await getDoc(ref);
+    if (!snap.exists()) return null;
+    return { ...(snap.data() as PageContent), slug };
   } catch (e) {
     console.error("getPageContent error", e);
     return null;

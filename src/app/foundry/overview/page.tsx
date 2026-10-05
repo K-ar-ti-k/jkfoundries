@@ -1,9 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getPageContent } from "@/lib/firebase/firestore";
 import JsonLd from "@/components/JsonLd";
 import { webPageJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
+
+const stats = [
+  { label: "Operational track record", value: "2010" },
+  { label: "Applications focus", value: "Trucks, trolleys & industry" },
+  { label: "Certifications", value: "ISO 9001 / 14001 / 45001" },
+  { label: "Supply", value: "Reliable high-volume supply" },
+];
+
+const certifications = [
+  "ISO 9001:2015 — Quality Management",
+  "ISO 14001:2015 — Environmental Management",
+  "ISO 45001:2018 — Occupational Health & Safety",
+  "ZED Certification — Zero Defect Zero Effect",
+];
 
 export const metadata = {
   title: "Overview | Steel Casting Manufacturer",
@@ -13,9 +26,7 @@ export const metadata = {
   ...pageSocialMetadata("Steel Casting Capabilities | JK Foundry", "Explore JK Foundry's steel casting materials, production processes, quality controls, and applications for truck, rail, and industrial components.", "/foundry/overview"),
 };
 
-export default async function FoundryOverviewPage() {
-  const content = await getPageContent("foundry_overview");
-  
+export default function FoundryOverviewPage() {
   return (
     <div className="min-h-screen bg-white">
       <JsonLd data={webPageJsonLd(
@@ -28,11 +39,10 @@ export default async function FoundryOverviewPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h1 className="text-3xl md:text-4xl font-montserrat font-semibold text-gray-900 mb-4 mt-6">
-                {content?.heroTitle || "Precision Steel Castings for Industrial Applications"}
+                Precision Steel Castings for Industrial Applications
               </h1>
               <p className="text-secondary leading-[1.8]">
-                {content?.heroDescription ||
-                  "JK Foundry is an Agra-based, ISO-certified steel castings manufacturer for truck, trolley, industrial equipment, and general engineering applications. We combine precision engineering, controlled moulding and melting processes, and rigorous quality assurance to deliver dependable cast components."}
+                JK Foundry is an Agra-based, ISO-certified steel castings manufacturer for truck, trolley, industrial equipment, and general engineering applications. We combine precision engineering, controlled moulding and melting processes, and rigorous quality assurance to deliver dependable cast components.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link href="/contact" className="bg-primary text-white px-5 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
@@ -50,16 +60,8 @@ export default async function FoundryOverviewPage() {
         </section>
 
         <section className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          {(content?.stats && content.stats.length > 0
-            ? content.stats
-            : [
-                { label: "Operational track record", value: "2010" },
-                { label: "Applications focus", value: "Trucks, trolleys & industry" },
-                { label: "Certifications", value: "ISO 9001 / 14001 / 45001" },
-                { label: "Supply", value: "Reliable high-volume supply" },
-              ]
-          ).map((s, idx) => (
-            <div key={idx} className="border rounded-lg p-5">
+          {stats.map((s) => (
+            <div key={s.label} className="border rounded-lg p-5">
               <div className="text-2xl font-bold text-gray-900">{s.value}</div>
               <div className="text-secondary">{s.label}</div>
             </div>
@@ -113,16 +115,8 @@ export default async function FoundryOverviewPage() {
             <div className="border rounded-lg p-6">
               <h3 className="text-lg font-medium text-gray-900 mb-2">Certifications</h3>
               <ul className="space-y-2 text-secondary">
-                {(content?.certifications && content.certifications.length > 0
-                  ? content.certifications
-                  : [
-                      "ISO 9001:2015 — Quality Management",
-                      "ISO 14001:2015 — Environmental Management",
-                      "ISO 45001:2018 — Occupational Health & Safety",
-                      "ZED Certification — Zero Defect Zero Effect",
-                    ]
-                ).map((c, idx) => (
-                  <li key={idx}>{c}</li>
+                {certifications.map((c) => (
+                  <li key={c}>{c}</li>
                 ))}
               </ul>
             </div>

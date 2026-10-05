@@ -22,7 +22,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: "Banner", href: "/admin/banner", icon: "📢", roles: ["admin"] },
     { name: "Blog Posts", href: "/admin/blog", icon: "📝", roles: ["admin", "blogger"] },
     { name: "Products", href: "/admin/products", icon: "📦", roles: ["admin"] },
-    { name: "Foundry Overview", href: "/admin/services/overview", icon: "🏭", roles: ["admin"] },
     { name: "Foundry Process", href: "/admin/services/process", icon: "⚙️", roles: ["admin"] },
     { name: "Infrastructure", href: "/admin/services/infrastructure", icon: "🏗️", roles: ["admin"] },
     { name: "Q / A", href: "/admin/services/qa", icon: "❓", roles: ["admin"] },
@@ -120,4 +119,3 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     </div>
   );
 }
-
