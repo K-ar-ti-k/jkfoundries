@@ -89,7 +89,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <Link href="/foundry/faq" className="flex items-center justify-between text-[#fff8f0] hover:text-primary transition-colors">
-                        <span>FAQ&apos;s</span>
+                        <span>FAQs</span>
                         <span className="text-[#a99485]">→</span>
                       </Link>
                     </li>
@@ -256,10 +256,10 @@ const Navbar = () => {
                   <div className="mb-2 text-sm font-semibold text-white">Foundry</div>
                   <div className="grid grid-cols-2 gap-3">
                     <Link href="/foundry/overview" className="text-[#fff8f0] hover:text-primary text-sm">Overview</Link>
-                    <Link href="/foundry/products" className="text-[#fff8f0] hover:text-primary text-sm">Products</Link>
+                    <Link href="/products" className="text-[#fff8f0] hover:text-primary text-sm">Products</Link>
                     <Link href="/infrastructure" className="text-[#fff8f0] hover:text-primary text-sm">Infrastructure</Link>
-                    <Link href="/foundry/q-a" className="text-[#fff8f0] hover:text-primary text-sm">Q / A</Link>
-                    <Link href="/foundry/process" className="text-[#fff8f0] hover:text-primary text-sm">Process</Link>
+                    <Link href="/foundry/faq" className="text-[#fff8f0] hover:text-primary text-sm">FAQs</Link>
+                    <Link href="/foundry/casting-process" className="text-[#fff8f0] hover:text-primary text-sm">casting Process</Link>
                   </div>
                 </div>
                 <div>

@@ -4,6 +4,12 @@ import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from "@/lib/jsonld";
 import { pageSocialMetadata } from "@/lib/site";
 
+const castingWeightFaq: QAItem = {
+  question: "What is the casting weight range at JK Foundry?",
+  answer:
+    "JK Foundry manufactures steel castings weighing approximately 0.5 kg to 150 kg. The achievable weight depends on the component's design, geometry, and material. We confirm the final casting weight after reviewing your drawing and production requirements, then select the moulding process to suit the component.",
+};
+
 const defaultFaqs: QAItem[] = [
   {
     question: "What does JK Foundry manufacture?",
@@ -20,11 +26,7 @@ const defaultFaqs: QAItem[] = [
     answer:
       "JK Foundry uses green sand moulding, shell moulding, and CO2 moulding. The recommended process depends on the component's geometry, weight, dimensional requirements, surface finish, production quantity, and application.",
   },
-  {
-    question: "What is the typical weight range for each moulding process?",
-    answer:
-      "JK Foundry produces steel castings from approximately 0.5 kg to 150 kg. The suitable moulding process and final casting weight are confirmed after reviewing the component drawing, geometry, material, and production requirements.",
-  },
+  castingWeightFaq,
   {
     question: "What is JK Foundry's minimum order quantity?",
     answer:
@@ -81,7 +83,7 @@ export const metadata = {
   title: "Steel Casting FAQ",
   description:
     "Get answers on JK Foundry's steel casting methods, inspection, certifications, samples, and quotation process.",
-  alternates: { canonical: "/foundry/q-a" },
+  alternates: { canonical: "/foundry/faq" },
   ...pageSocialMetadata("Steel Casting FAQ | JK Foundry", "Get answers on JK Foundry's steel casting methods, inspection, traceability, certifications, samples, and quotation process.", "/foundry/q-a"),
 };
 
@@ -90,11 +92,18 @@ export default async function FoundryQAPage() {
 
   const title = content?.title || "Steel Casting FAQs | JK Foundry";
   const description = content?.description || "Find clear answers about JK Foundry's steel casting processes, moulding methods, quality certifications, applications, quotations, samples, and contact details.";
-  const savedItems = (content?.items || []).map((item, index) =>
-    index === 0 || item.question.trim().toLowerCase() === defaultFaqs[0].question.toLowerCase()
-      ? { ...item, answer: defaultFaqs[0].answer }
-      : item,
-  );
+  const savedItems = (content?.items || []).map((item, index) => {
+    const question = item.question.trim().toLowerCase();
+    const isCastingWeightFaq =
+      question === "what is the typical weight range for each moulding process?" ||
+      question === castingWeightFaq.question.toLowerCase();
+
+    if (isCastingWeightFaq) return { ...item, ...castingWeightFaq };
+    if (index === 0 || question === defaultFaqs[0].question.toLowerCase()) {
+      return { ...item, answer: defaultFaqs[0].answer };
+    }
+    return item;
+  });
   const savedQuestions = new Set(savedItems.map((item) => item.question.trim().toLowerCase()));
   const items = [
     ...savedItems,
@@ -106,14 +115,14 @@ export default async function FoundryQAPage() {
   return (
     <div className="min-h-screen bg-white">
       <JsonLd data={webPageJsonLd(
-        "/foundry/q-a",
+        "/foundry/faq",
         "Foundry Quality Assurance",
         "JK Foundry quality assurance, inspection, process control, traceability, and certifications.",
       )} />
       <JsonLd data={breadcrumbJsonLd([
         { name: "Home", path: "/" },
         { name: "Foundry", path: "/foundry" },
-        { name: "FAQ", path: "/foundry/q-a" },
+        { name: "FAQ", path: "/foundry/faq" },
       ])} />
       <JsonLd data={faqJsonLd(items)} />
       <main className="container mx-auto px-5 py-12 max-w-4xl">

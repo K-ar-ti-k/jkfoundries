@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "Where is JK Foundry located?",
     answer:
-      "JK Foundry is situated in the industrial hub of Foundry Nagar, Agra, Uttar Pradesh (1292/115, Shobha Nagar, Foundry Nagar, Agra - 282006, India), well-connected by national freight and railway networks across North and Central India.",
+      "JK Foundry is situated in the industrial hub of Foundry Nagar, Agra, Uttar Pradesh (1292/115, Shobha Nagar, Foundry Nagar, Agra - 282006, India), well-connected by national freight across North and Central India.",
   },
   {
     question: "What types of steel castings does JK Foundry manufacture?",
@@ -42,6 +42,11 @@ const faqs = [
     question: "What moulding and casting processes are available at your facility?",
     answer:
       "Our Agra foundry operates Green Sand Moulding, Shell Moulding, and CO2 Sand Moulding lines, complemented by induction melting furnaces, heat treatment, in-house pattern development, and comprehensive physical/chemical testing labs.",
+  },
+  {
+    question: "What is the casting weight range at JK Foundry?",
+    answer:
+      "JK Foundry manufactures steel castings weighing approximately 0.5 kg to 150 kg. The achievable weight depends on the component's design, geometry, and material. We confirm the final casting weight after reviewing your drawing and production requirements, then select the moulding process to suit the component.",
   },
   {
     question: "Can JK Foundry develop custom castings from engineering drawings or samples?",
@@ -442,7 +447,7 @@ export default function AboutPage() {
               Serving Diverse Industrial Applications
             </h2>
             <p className="text-gray-600 mt-3">
-              JK Foundry&apos;s steel castings are engineered for durability and precision, catering to a wide range of industries including commercial vehicles, agriculture, railways, and heavy industrial machinery.
+              JK Foundry&apos;s steel castings are engineered for durability and precision, catering to a wide range of industries including commercial vehicles, agriculture, and heavy industrial machinery.
             </p>
           </div>
           <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 justify-items-center">
@@ -615,4 +620,3 @@ export default function AboutPage() {
     </div>
   );
 }
-

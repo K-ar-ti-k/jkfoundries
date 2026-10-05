@@ -32,7 +32,7 @@ export default async function FoundryOverviewPage() {
               </h1>
               <p className="text-secondary leading-[1.8]">
                 {content?.heroDescription ||
-                  "JK Foundry is an Agra-based, ISO-certified steel castings manufacturer for railway, truck, trolley, industrial equipment, and general engineering applications. We combine precision engineering, controlled moulding and melting processes, and rigorous quality assurance to deliver dependable cast components."}
+                  "JK Foundry is an Agra-based, ISO-certified steel castings manufacturer for truck, trolley, industrial equipment, and general engineering applications. We combine precision engineering, controlled moulding and melting processes, and rigorous quality assurance to deliver dependable cast components."}
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link href="/contact" className="bg-primary text-white px-5 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
@@ -53,7 +53,7 @@ export default async function FoundryOverviewPage() {
           {(content?.stats && content.stats.length > 0
             ? content.stats
             : [
-                { label: "Operational track record", value: "2007+" },
+                { label: "Operational track record", value: "2010" },
                 { label: "Applications focus", value: "Trucks, trolleys & industry" },
                 { label: "Certifications", value: "ISO 9001 / 14001 / 45001" },
                 { label: "Supply", value: "Reliable high-volume supply" },

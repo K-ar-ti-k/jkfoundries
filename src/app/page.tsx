@@ -301,7 +301,7 @@ export default async function Home() {
             {/* Capacity 3 */}
             <div className="bg-light p-6 rounded-lg text-center">
               <div className="text-4xl font-bold text-primary mb-2">
-                18 yrs
+                15+ yrs
               </div>
               <p className="text-lg font-semibold font-montserrat mb-2">
                 Industry Experience
@@ -461,7 +461,7 @@ export default async function Home() {
               Get Your Samples
             </Link>
             {/*<a
-              href="https://wa.me/917906209355"
+              href="https://wa.me/917895679965"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 text-white px-6 py-3 rounded-md font-medium hover:bg-green-700 transition-colors inline-block"

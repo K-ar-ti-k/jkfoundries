@@ -83,13 +83,6 @@ Update the content in the page files to reflect the latest information about JK 
 
 This project is proprietary and confidential. Unauthorized copying, distribution, or use is strictly prohibited.
 
-## Contact
-
-For any questions or inquiries about this website, please contact:
-
-- Email: parameshtiagarwal@gmail.com
-- Phone: +91-7906209355
-
 ## 1. PROJECT OVERVIEW
 
 **Site Name:** JK Foundry  
@@ -228,10 +221,7 @@ Each unit can have a small photo gallery or at least one representative image.
 
 ---
 
-#### 3.2.7. Contact
-- **Contact Details**  
-  - Phone: +91-7906209355 (with a clickable WhatsApp link: `https://wa.me/917906209355`)  
-  - Email: parameshtiagarwal@gmail.com (clickable mailto link)  
+#### 3.2.7. Contact  
   - Optionally, a contact form for direct inquiries:  
     - Name  
     - Email / Phone  

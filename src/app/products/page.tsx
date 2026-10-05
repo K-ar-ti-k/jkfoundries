@@ -82,7 +82,7 @@ export default async function ProductsPage() {
               Request Samples
             </Link>
             <a
-              href="https://wa.me/917906209355"
+              href="https://wa.me/917895679965"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 text-white px-6 py-3 rounded-md font-medium hover:bg-green-700 transition-colors inline-block"
